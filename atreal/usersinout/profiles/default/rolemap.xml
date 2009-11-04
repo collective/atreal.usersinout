@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="Contacts: Add Directory" acquire="False">
+        <role name="Manager" />
+        <role name="Owner" />
+        <role name="Contributor" />
+    </permission>
+    <permission name="Contacts: Add Contact" acquire="False">
+        <role name="Manager" />
+        <role name="Owner" />
+        <role name="Contributor" />
+    </permission>
+    <permission name="Contacts: Add Organization" acquire="False">
+        <role name="Manager" />
+        <role name="Owner" />
+        <role name="Contributor" />
+    </permission>
+  </permissions>
+</rolemap>

@@ -1,0 +1,88 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="atreal.usersinout">
+<body>
+    <div metal:fill-slot="main"
+         tal:define="useSelf python:isStructuralFolder and not isContextDefaultPage;
+                     folder_warning python:useSelf and here.portal_type != 'Topic';">
+
+      <h1 class="documentFirstHeading"
+          i18n:translate="">
+        Users In/Out
+      </h1>
+      
+      <span class="discreet" i18n:translate="">
+          Users import and export as CSV files.
+      </span>
+        
+      <br/>
+
+      <form method="POST" action="#"  enctype="multipart/form-data"
+            tal:attributes="action current_page_url">
+        
+        <input type="hidden"
+                 name="form.submitted"
+                 value="1"
+                 />
+        
+        <fieldset>
+          <legend i18n:translate="">
+            Import
+          </legend>
+            
+          <label i18n:translate="">Csv file</label>
+          <input type="file" name="csv_upload" />
+            
+          <div class="formControls">
+            
+            <input class="destructive"
+                   type="submit"
+                   value="Cancel"
+                   name="form.button.Cancel"
+                   i18n:attributes="value label_cancel;"
+                   />
+            <input class="standalone"
+                   type="submit"
+                   value="Import"
+                   name="form.button.Import"
+                   i18n:attributes="value;"
+                   />
+
+          </div>
+
+        </fieldset>
+        
+        <fieldset>
+          <legend i18n:translate="">
+            Export
+          </legend>
+            
+          <div class="formControls">
+            
+            <input class="destructive"
+                   type="submit"
+                   value="Cancel"
+                   name="form.button.Cancel"
+                   i18n:attributes="value label_cancel;"
+                   />
+            <input class="standalone"
+                   type="submit"
+                   value="Export"
+                   name="form.button.Export"
+                   i18n:attributes="value;"
+                   />
+
+          </div>
+
+        </fieldset>        
+
+        <input tal:replace="structure context/@@authenticator/authenticator" />
+      </form>
+    </div>
+</body>
+</html>
+

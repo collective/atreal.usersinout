@@ -1,0 +1,27 @@
+Metadata-Version: 1.0
+Name: atreal.usersinout
+Version: 1.0dev
+Summary: Import / export users via CSV files
+Home-page: http://www.atreal.net
+Author: atReal
+Author-email: contact@atreal.net
+License: GPL
+Description: Introduction
+        ============
+        
+        Import / export users via CSV files
+        
+        Changelog
+        =========
+        
+        1.0 - Unreleased
+        ----------------
+        
+        * Initial release
+        
+        
+Keywords: zope plone atreal users import export csv
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

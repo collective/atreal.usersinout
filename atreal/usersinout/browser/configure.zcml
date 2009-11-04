@@ -1,0 +1,24 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="atreal.usersinout">
+
+    <include package="plone.app.contentmenu" />
+
+    <adapter factory=".controlpanel.UsersInOutControlPanelAdapter" />
+
+   <browser:page
+        name="usersinout-controlpanel"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".usersinout.UsersInOut"
+        permission="cmf.ManagePortal"
+        layer="atreal.usersinout.interfaces.IUsersInOutLayer"
+        />
+
+    <browser:resource
+        name="usersinout_icon.png"
+        image="usersinout_icon.png"
+        layer="atreal.usersinout.interfaces.IUsersInOutLayer"
+        />
+
+</configure>
