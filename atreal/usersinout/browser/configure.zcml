@@ -3,14 +3,20 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="atreal.usersinout">
 
-    <include package="plone.app.contentmenu" />
-
-    <adapter factory=".controlpanel.UsersInOutControlPanelAdapter" />
-
    <browser:page
         name="usersinout-controlpanel"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         class=".usersinout.UsersInOut"
+        template="usersinout.pt"
+        permission="cmf.ManagePortal"
+        layer="atreal.usersinout.interfaces.IUsersInOutLayer"
+        />
+
+   <browser:page
+        name="usersinout-getCSVTemplate"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".usersinout.UsersInOut"
+        attribute="getCSVTemplate"
         permission="cmf.ManagePortal"
         layer="atreal.usersinout.interfaces.IUsersInOutLayer"
         />

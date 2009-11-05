@@ -3,24 +3,32 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
-      metal:use-macro="context/main_template/macros/master"
+      metal:use-macro="context/prefs_main_template/macros/master"
       i18n:domain="atreal.usersinout">
+    
+
+<metal:block metal:fill-slot="top_slot"
+             tal:define="dummy python:request.set('disable_border', 1)" />
+
 <body>
-    <div metal:fill-slot="main"
-         tal:define="useSelf python:isStructuralFolder and not isContextDefaultPage;
-                     folder_warning python:useSelf and here.portal_type != 'Topic';">
+    <div metal:fill-slot="prefs_configlet_main">
 
       <h1 class="documentFirstHeading"
           i18n:translate="">
         Users In/Out
       </h1>
       
-      <span class="discreet" i18n:translate="">
+      <a href=""
+        class="link-parent"
+        tal:attributes="href string:$portal_url/plone_control_panel"
+        i18n:translate="label_up_to_plone_setup">
+        Up to Site Setup
+      </a>
+      
+      <p class="discreet" i18n:translate="">
           Users import and export as CSV files.
-      </span>
+      </p>
         
-      <br/>
-
       <form method="POST" action="#"  enctype="multipart/form-data"
             tal:attributes="action current_page_url">
         
@@ -28,14 +36,22 @@
                  name="form.submitted"
                  value="1"
                  />
-        
+
         <fieldset>
           <legend i18n:translate="">
             Import
           </legend>
-            
-          <label i18n:translate="">Csv file</label>
-          <input type="file" name="csv_upload" />
+           
+          <div class="field">    
+            <label i18n:translate="">Csv file</label>
+            <div class="formHelp" i18n:translate="">
+              Select your CSV file here. Please respect the syntax of the template available
+              <a href="" tal:attributes="href string:${context/absolute_url}/@@usersinout-getCSVTemplate">
+                here
+              </a>
+            </div>            
+            <input type="file" name="csv_upload" />
+          </div>
             
           <div class="formControls">
             
@@ -55,12 +71,57 @@
           </div>
 
         </fieldset>
-        
+
+        <fieldset tal:condition="python:'results' in view.request">
+          <legend i18n:translate="">
+            Results
+          </legend>
+          
+          <div class="field">  
+              <span class="discreet">
+                <tal:number content="view/request/results"/> 
+                <tal:trans i18n:translate="">member(s) added.</tal:trans>
+              </span>
+          </div>
+
+          <tal:errors tal:condition="view/request/csverrors|nothing">
+            
+            <div class="field">  
+              <label i18n:translate="">Errors detail</label>
+              <div class="formHelp" i18n:translate="">
+                You will find below the CSV lines that failed.
+              </div>
+              <textarea name="users_sheet_out"
+                        tal:content="view/request/form/users_sheet_errors|nothing">
+              </textarea>
+            </div>
+            
+            <div class="formControls">
+              <input class="standalone"
+                     type="submit"
+                     value="Click here to get the errors as a CSV file"
+                     name="form.button.CSVErrors"
+                     i18n:attributes="value;"
+                     />
+            </div>
+            
+          </tal:errors>
+
+        </fieldset>
+
+
+
         <fieldset>
           <legend i18n:translate="">
             Export
           </legend>
             
+          <div class="formHelp" i18n:translate="">
+            Click on the Export button in order to download the full list of the
+            portal members as a CSV file. The CSV syntax is the same used in the
+            template.
+          </div>
+          
           <div class="formControls">
             
             <input class="destructive"
@@ -78,11 +139,12 @@
 
           </div>
 
-        </fieldset>        
+        </fieldset>     
 
         <input tal:replace="structure context/@@authenticator/authenticator" />
       </form>
     </div>
 </body>
+
 </html>
 
