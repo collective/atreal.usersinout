@@ -62,16 +62,3 @@ TODO
 * Roles support (export only)
 * Customizable CSV header.
 * French translations.
-
-
-=================================
-Changelog for atreal.usersinout
-=================================
-(name of developer listed in brackets)
-
-
-Version 1.0beta1 - 2009-11-05
-----------------------------
-
-- First version.
-[Matthias Broquet]

@@ -5,4 +5,5 @@ Changelog
 ----------------
 
 * Initial release
+  [Matthias Broquet a.k.a tiazma]
 
