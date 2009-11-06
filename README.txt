@@ -61,4 +61,3 @@ TODO
 * Groups support (import and export).
 * Roles support (export only)
 * Customizable CSV header.
-* French translations.

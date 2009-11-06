@@ -18,12 +18,14 @@
         Users In/Out
       </h1>
       
-      <a href=""
-        class="link-parent"
-        tal:attributes="href string:$portal_url/plone_control_panel"
-        i18n:translate="label_up_to_plone_setup">
-        Up to Site Setup
-      </a>
+      <tal:trans i18n:domain="plone">
+        <a href=""
+          class="link-parent"
+          tal:attributes="href string:$portal_url/plone_control_panel"
+          i18n:translate="label_up_to_plone_setup">
+          Up to Site Setup
+        </a>
+      </tal:trans>
       
       <p class="discreet" i18n:translate="">
           Users import and export as CSV files.
@@ -46,14 +48,18 @@
             <label i18n:translate="">Csv file</label>
             <div class="formHelp" i18n:translate="">
               Select your CSV file here. Please respect the syntax of the template available
-              <a href="" tal:attributes="href string:${context/absolute_url}/@@usersinout-getCSVTemplate">
-                here
-              </a>
+              <tal:trans i18n:name="here">
+                <a href="" i18n:translate=""
+                   tal:attributes="href string:${context/absolute_url}/@@usersinout-getCSVTemplate">
+                  here
+                </a>
+              </tal:trans>
             </div>            
             <input type="file" name="csv_upload" />
           </div>
             
-          <div class="formControls">
+          <div class="formControls"
+               i18n:domain="plone">
             
             <input class="destructive"
                    type="submit"
@@ -122,7 +128,8 @@
             template.
           </div>
           
-          <div class="formControls">
+          <div class="formControls"
+               i18n:domain="plone">
             
             <input class="destructive"
                    type="submit"

@@ -1,6 +1,14 @@
 Changelog
 =========
 
+1.0 beta4
+----------------
+
+* Added translation support
+* Added french translations
+  [Matthias Broquet a.k.a tiazma]
+
+
 1.0 - Unreleased
 ----------------
 
