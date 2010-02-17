@@ -31,7 +31,7 @@ Description
 Installation  
 ------------
 
-* Use buildout, add atreal.usersinout in both of your eggs and zcml sections.
+* Use buildout, add atreal.usersinout in both of your egg and zcml sections.
 
 
 Important
@@ -43,8 +43,8 @@ Off course, those functionalities are only available for member with 'Manager' r
 Note
 ----
 
-* Adding member in group(s) will supported, but is currently not implemented. This
-  is the reason why you'll find a 'groups' fied in the CSV file. Leave it empty.
+* Adding member in group(s) is now supported, but currently the export not
+  implemented. 
 * Global roles can be imported but currently not exported. Will be implemented soon.
 
 
@@ -58,6 +58,6 @@ Matthias Broquet <tiazma>
 TODO
 ----
 
-* Groups support (import and export).
+* Groups support (import OK, stay the export).
 * Roles support (export only)
 * Customizable CSV header.

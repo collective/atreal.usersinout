@@ -19,7 +19,7 @@ msgstr ""
 #. Default: "Click here to get the errors as a CSV file"
 #: ./browser/usersinout.pt:103
 msgid "Click here to get the errors as a CSV file"
-msgstr "Cliquez ici pour récupérer les erruers dans un fichier CSV."
+msgstr "Cliquez ici pour récupérer les erreurs dans un fichier CSV."
 
 #. Default: "Click on the Export button in order to download the full list of the portal members as a CSV file. The CSV syntax is the same used in the template."
 #: ./browser/usersinout.pt:122
@@ -98,12 +98,12 @@ msgstr "ici"
 msgid "label_cancel"
 msgstr "Annuler"
 
-#. Default: "Up to Site Setup"
-#: ./browser/usersinout.pt:21
-msgid "label_up_to_plone_setup"
-msgstr ""
-
 #. Default: "member(s) added."
 #: ./browser/usersinout.pt:86
 msgid "member(s) added."
-msgstr ""
+msgstr "membre(s) ajouté(s)"
+
+#. Default: "group(s) added."
+#: ./browser/usersinout.pt:86
+msgid "group(s) added."
+msgstr "groupe(s) ajouté(s)"

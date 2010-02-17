@@ -1,6 +1,17 @@
 Changelog
 =========
 
+1.1 beta1
+----------------
+
+* Added group creation / member assignment
+* Corrected bug #2
+  http://plone.org/products/atreal.usersinout/issues/2
+* Typos in french translation
+  [tiazma]
+
+
+
 1.0 beta4
 ----------------
 

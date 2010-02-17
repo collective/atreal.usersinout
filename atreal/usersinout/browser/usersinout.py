@@ -2,6 +2,7 @@ import csv
 from StringIO import StringIO
 
 from zope.interface import implements
+import transaction
 
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
@@ -14,7 +15,7 @@ class UsersInOut (BrowserView):
     """ Users import and export as CSV files
     
     """
-    
+
     def __call__(self):
         method = self.request.get('REQUEST_METHOD', 'GET')
         if (method != 'POST') or not int(self.request.form.get('form.submitted', 0)):
@@ -59,21 +60,47 @@ class UsersInOut (BrowserView):
             return
         
         pr = getToolByName(self.context, 'portal_registration')
+        pg = getToolByName(self.context, 'portal_groups')
+        acl = getToolByName(self.context,'acl_users')
+        groupsIds = set([item['id'] for item in acl.searchGroups()])
+        groupsDict = {}
         invalidLines = []
-        i = 0
+        validLines = []
+
+        groupsNumber = 0
         for line in reader:
             datas = dict(zip(header, line))
             try:
-                groups = datas.pop('groups').split(',')
+                groups = [g.strip() for g in datas.pop('groups').split(',')]
+                for group in groups:
+                    if not group in groupsIds: # New group, 'have to create it
+                        pg.addGroup(group)
+                        groupsNumber += 1
+                
+            except:
+                invalidLines.append(line)
+                print "Invalid line : %s" % username
+                continue
+            validLines.append(line)
+
+        usersNumber = 0
+        for line in validLines:
+            datas = dict(zip(header, line))
+            try:
+                groups = [g.strip() for g in datas.pop('groups').split(',')]
                 username = datas['username']
                 password = datas.pop('password')
                 roles = datas.pop('roles').split(',')
                 pr.addMember(username, password, roles, [], datas)
-                i += 1
+                for group in groups:
+                    if not group in groupsDict.keys():
+                        groupsDict[group] = acl.getGroupById(group)
+                    groupsDict[group].addMember(username)
+                usersNumber += 1
             except:
                 invalidLines.append(line)
                 print "Invalid line : %s" % username
-        
+
         if invalidLines:
             datafile = self._createCSV(invalidLines)
             self.request['csverrors'] = True
@@ -84,7 +111,8 @@ class UsersInOut (BrowserView):
             msg, type = _('Members successfully imported.'), 'info'
 
         IStatusMessage(self.request).addStatusMessage(msg, type=type)
-        self.request['results'] = i
+        self.request['users_results'] = usersNumber
+        self.request['groups_results'] = usersNumber
         return self.index()
 
 
@@ -94,7 +122,6 @@ class UsersInOut (BrowserView):
         users_sheet_errors = self.request.form.get('users_sheet_errors', None)
         if users_sheet_errors is None:
             return # XXX
-        
         return self._createRequest(users_sheet_errors, "users_sheet_errors.csv")
 
 

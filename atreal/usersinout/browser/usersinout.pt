@@ -78,16 +78,20 @@
 
         </fieldset>
 
-        <fieldset tal:condition="python:'results' in view.request">
+        <fieldset tal:condition="python:'users_results' in view.request">
           <legend i18n:translate="">
             Results
           </legend>
           
           <div class="field">  
-              <span class="discreet">
-                <tal:number content="view/request/results"/> 
+              <div class="discreet">
+                <tal:number content="view/request/users_results"/> 
                 <tal:trans i18n:translate="">member(s) added.</tal:trans>
-              </span>
+              </div>
+              <div class="discreet">
+                <tal:number content="view/request/groups_results"/> 
+                <tal:trans i18n:translate="">group(s) added.</tal:trans>
+              </div>
           </div>
 
           <tal:errors tal:condition="view/request/csverrors|nothing">
@@ -97,7 +101,7 @@
               <div class="formHelp" i18n:translate="">
                 You will find below the CSV lines that failed.
               </div>
-              <textarea name="users_sheet_out"
+              <textarea name="users_sheet_errors"
                         tal:content="view/request/form/users_sheet_errors|nothing">
               </textarea>
             </div>
