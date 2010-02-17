@@ -112,7 +112,7 @@ class UsersInOut (BrowserView):
 
         IStatusMessage(self.request).addStatusMessage(msg, type=type)
         self.request['users_results'] = usersNumber
-        self.request['groups_results'] = usersNumber
+        self.request['groups_results'] = groupsNumber
         return self.index()
 
 
