@@ -130,6 +130,12 @@ class UsersInOut (BrowserView):
             
         """
         self.pms = getToolByName(self.context,'portal_membership')
+        pg = getToolByName(self.context,'portal_groups')
+        acl = getToolByName(self.context,'acl_users')
+        gids = set([item['id'] for item in acl.searchGroups()])
+        self.group_roles = {}
+        for gid in gids:
+            self.group_roles[gid] = pg.getGroupById(gid).getRoles()
         datafile = self._createCSV(self._getUsersInfos())
         return self._createRequest(datafile.getvalue(), "users_sheet_export.csv")
 
@@ -138,15 +144,22 @@ class UsersInOut (BrowserView):
         """ Generator filled with the members data """
         acl = getToolByName(self.context, 'acl_users')
         for user in acl.searchUsers():
-            yield self._getUserData(user['userid'])
+            if not user['pluginid'] == 'mutable_properties':
+                yield self._getUserData(user['userid'])
     
     
     def _getUserData(self,userId):
         member = self.pms.getMemberById(userId)
-        props = [userId, '', ''] # userid, password, roles - XXX to implement
-        for p in MEMBER_PROPERTIES:
-            props.append(member.getProperty(p))
-        props.append('') # groups - XXX to implement
+        groups = member.getGroups()
+        group_roles = []
+        for gid in groups:
+            group_roles.extend(self.group_roles.get(gid, []))
+        roles = [role for role in member.getRoles() if not role in group_roles]
+        props = [userId, '', ','.join(roles)] # userid, password, roles
+        if member is not None:
+            for p in MEMBER_PROPERTIES:
+                props.append(member.getProperty(p))
+        props.append(','.join(groups)) # groups
         return props
 
 
