@@ -1,6 +1,16 @@
 Changelog
 =========
 
+1.2
+----------------
+
+* Added export support for roles and groups [simu]
+* Added filtering for results of acl_users.searchUsers to ignore entries from mutable_properties plugin which resulted in duplicate entries for users and entries for groups [simu]
+* Fixed AttributeError raised when exporting and portal_membership.getMemberById returns None (eg. if there are groups created over the plone UI) [simu]
+* Added german translation [simu]
+
+
+
 1.1 beta1
 ----------------
 

@@ -55,9 +55,14 @@ Authors
 Matthias Broquet <tiazma>
 
 
+Credits
+-------
+
+Thanks to Simon Kaser <simu> from raptus - raptus.com for roles / groups export
+and german translation.
+
+
 TODO
 ----
 
-* Groups support (import OK, stay the export).
-* Roles support (export only)
 * Customizable CSV header.
