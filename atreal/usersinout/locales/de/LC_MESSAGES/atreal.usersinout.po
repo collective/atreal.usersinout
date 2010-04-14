@@ -1,0 +1,109 @@
+# Simon Käser <skaeser@raptus.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: atreal.usersinout\n"
+"POT-Creation-Date: 2009-11-06 14:19+0000\n"
+"PO-Revision-Date: 2010-04-12 15:49+0100\n"
+"Last-Translator: Simon Käser [simu] <skaeser@raptus.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: de\n"
+"Language-Name: Deutsch\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: atreal.usersinout\n"
+"X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
+
+#. Default: "Click here to get the errors as a CSV file"
+#: ./browser/usersinout.pt:103
+msgid "Click here to get the errors as a CSV file"
+msgstr "Drücke Sie hier um die Fehler als CSV-Datei zu erhalten"
+
+#. Default: "Click on the Export button in order to download the full list of the portal members as a CSV file. The CSV syntax is the same used in the template."
+#: ./browser/usersinout.pt:122
+msgid "Click on the Export button in order to download the full list of the portal members as a CSV file. The CSV syntax is the same used in the template."
+msgstr "Drücken Sie auf Exportieren um eine komplette Liste aller Mitglieder als CSV-Datei zu erhalten. Das CSV-Format ist identisch mit dem in der Vorlage."
+
+#. Default: "Csv file"
+#: ./browser/usersinout.pt:46
+msgid "Csv file"
+msgstr "CSV-Datei"
+
+#. Default: "Errors detail"
+#: ./browser/usersinout.pt:93
+msgid "Errors detail"
+msgstr "Fehlerbeschreibung"
+
+#. Default: "Export"
+#: ./browser/usersinout.pt:118
+msgid "Export"
+msgstr "Exportieren"
+
+#. Default: "Import"
+#: ./browser/usersinout.pt:41
+msgid "Import"
+msgstr "Importieren"
+
+#: ./browser/usersinout.py:84
+msgid "Members successfully imported."
+msgstr "Mitglieder erfolgreich importiert"
+
+#. Default: "Results"
+#: ./browser/usersinout.pt:79
+msgid "Results"
+msgstr "Resultate"
+
+#. Default: "Select your CSV file here. Please respect the syntax of the template available ${here}"
+#: ./browser/usersinout.pt:49
+msgid "Select your CSV file here. Please respect the syntax of the template available ${here}"
+msgstr "Wählen Sie hier Ihre CSV-Datei aus. Bitte verwenden Sie das selbe Format wie in der Vorlage, welche Sie ${here} finden."
+
+#: ./browser/usersinout.py:81
+msgid "Some errors occured. Please check your CSV syntax and retry."
+msgstr "Es sind Fehler aufgetreten. Bitte überprüfen Sie das Format der CSV-Datei und versuchen Sie es erneut."
+
+#. Default: "Users In/Out"
+#: ./browser/usersinout.pt:16
+msgid "Users In/Out"
+msgstr "Benutzer Import/Export"
+
+#. Default: "Users import and export as CSV files."
+#: ./browser/usersinout.pt:28
+msgid "Users import and export as CSV files."
+msgstr "Benutzer Import/Export als CSV-Datei"
+
+#. Default: "UsersInOut"
+#: ./profiles/default/actionicons.xml
+msgid "UsersInOut"
+msgstr ""
+
+#: ./browser/usersinout.py:56
+msgid "Wrong specification of the CSV file. Please correct it and retry."
+msgstr "Falsches CSV-Format. Bitte korrigieren und erneut versuchen."
+
+#. Default: "You will find below the CSV lines that failed."
+#: ./browser/usersinout.pt:94
+msgid "You will find below the CSV lines that failed."
+msgstr "Nachfolgend finden Sie die fehlerhaften Zeilen der CSV-Datei."
+
+#. Default: "here"
+#: ./browser/usersinout.pt:50
+msgid "here"
+msgstr "hier"
+
+#. Default: "Cancel"
+#: ./browser/usersinout.pt:61
+msgid "label_cancel"
+msgstr "Abbrechen"
+
+#. Default: "member(s) added."
+#: ./browser/usersinout.pt:86
+msgid "member(s) added."
+msgstr "Mitglied(er) hinzugefügt."
+
+#. Default: "group(s) added."
+#: ./browser/usersinout.pt:90
+msgid "group(s) added."
+msgstr "Gruppe(n) hinzugefügt"
