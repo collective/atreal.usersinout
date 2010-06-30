@@ -78,7 +78,7 @@ class UsersInOut (BrowserView):
 
             except:
                 invalidLines.append(line)
-                print "Invalid line : %s" % username
+                print "Invalid line: %s" % line
                 continue
             validLines.append(line)
 
@@ -98,7 +98,7 @@ class UsersInOut (BrowserView):
                 usersNumber += 1
             except:
                 invalidLines.append(line)
-                print "Invalid line : %s" % username
+                print "Invalid line: %s" % line
 
         if invalidLines:
             datafile = self._createCSV(invalidLines)
