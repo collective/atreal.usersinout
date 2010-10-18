@@ -32,7 +32,7 @@
       </p>
         
       <form method="POST" action="#"  enctype="multipart/form-data"
-            tal:attributes="action current_page_url">
+            tal:attributes="action context/@@plone_context_state/current_page_url">
         
         <input type="hidden"
                  name="form.submitted"
