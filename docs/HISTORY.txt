@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.2.1 (unreleased)
+----------------
+
+* Update MANIFEST.in (now including docs folder, txt and .mo files)
+  [rbeylerian]
+
+
 1.2
 ----------------
 
