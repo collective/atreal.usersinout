@@ -4,6 +4,9 @@ Changelog
 1.2.1 (unreleased)
 ----------------
 
+* Added conditional include of CMFCore permisssions.zcml for Plone 4.1 support
+  [rbeylerian]
+
 * Update MANIFEST.in (now including docs folder, txt and .mo files)
   [rbeylerian]
 
