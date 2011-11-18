@@ -1,16 +1,14 @@
-==================================
-atreal.usersinout Package Readme
-==================================
+.. contents::
 
 Overview
---------
+========
 
 This plone product allows you to import / export portal's members within CSV
 files. Few properties may equally been set.
 
 
 Description
------------
+===========
 
 * after being installed with the Quickinstaller tool, it adds an additional
   item in the control panel.
@@ -28,20 +26,20 @@ Description
   matching lines. Use it to correct your errors, then retry.
   
   
-Installation  
-------------
+Installation
+============
 
 * Use buildout, add atreal.usersinout in both of your egg and zcml sections.
 
 
 Important
----------
+=========
 
 Off course, those functionalities are only available for member with 'Manager' role.
 
 
 Note
-----
+====
 
 * Adding member in group(s) is now supported, but currently the export not
   implemented. 
@@ -49,20 +47,37 @@ Note
 
 
 Authors
--------
+=======
 
-:atReal Team - contac@atreal.net :
-Matthias Broquet <tiazma>
+|atreal|_
+
+* `atReal Team`_
+
+  - Matthias Broquet [tiazma]
+
+.. |atreal| image:: http://www.atreal.fr/medias/atreal-logo-48.png
+.. _atreal: http://www.atreal.fr/
+.. _atReal Team: mailto:contact@atreal.fr
+
+
+Contributors
+============
+
+* `atReal Team`_
+
+  - Romain BEYLERIAN [rbeylerian]
+
+.. _atReal Team: mailto:contact@atreal.fr
 
 
 Credits
--------
+=======
 
 Thanks to Simon Kaser <simu> from raptus - raptus.com for roles / groups export
 and german translation.
 
 
 TODO
-----
+====
 
 * Customizable CSV header.

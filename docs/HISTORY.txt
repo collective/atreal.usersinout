@@ -1,8 +1,11 @@
 Changelog
 =========
 
-1.2.1 (unreleased)
-----------------
+1.2.1 (2011-18-11)
+------------------
+
+* Update README.txt
+  [rbeylerian]
 
 * Added conditional include of CMFCore permisssions.zcml for Plone 4.1 support
   [rbeylerian]
