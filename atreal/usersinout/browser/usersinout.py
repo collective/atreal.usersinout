@@ -70,7 +70,7 @@ class UsersInOut (BrowserView):
         for line in reader:
             datas = dict(zip(header, line))
             try:
-                groups = [g.strip() for g in datas.pop('groups').split(',')]
+                groups = [g.strip() for g in datas.pop('groups').split(',') if g]
                 for group in groups:
                     if not group in groupsIds: # New group, 'have to create it
                         pg.addGroup(group)
@@ -86,7 +86,7 @@ class UsersInOut (BrowserView):
         for line in validLines:
             datas = dict(zip(header, line))
             try:
-                groups = [g.strip() for g in datas.pop('groups').split(',')]
+                groups = [g.strip() for g in datas.pop('groups').split(',') if g]
                 username = datas['username']
                 password = datas.pop('password')
                 roles = datas.pop('roles').split(',')

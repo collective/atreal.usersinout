@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.2.2 (2011-11-28)
+------------------
+
+* Fix behaviour when creating user with no group. [rbeylerian]
+
+
 1.2.1 (2011-18-11)
 ------------------
 
