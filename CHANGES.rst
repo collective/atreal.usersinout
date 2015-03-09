@@ -4,6 +4,9 @@ Changelog
 1.2.3 (unreleased)
 ------------------
 
+- Add ``z3c.autoinclude.plugin`` entry point.
+  [thet]
+
 - PEP 8, cleanup.
   [thet]
 
