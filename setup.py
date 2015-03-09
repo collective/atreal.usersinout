@@ -7,9 +7,9 @@ setup(
     name='atreal.usersinout',
     version=version,
     description="Import / export users via CSV files",
-    long_description="%s%s" % (
+    long_description="%s%s%s" % (
         open("README.rst").read(),
-        "\n",
+        "\n\n",
         open("CHANGES.rst").read()
     ),
     classifiers=[
