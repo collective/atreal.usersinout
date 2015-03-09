@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <action-icons xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="atreal.usersinout">
-  <action-icon
+  <action-icon remove="True"
       action_id="UsersInOut"
       category="controlpanel"
       icon_expr="++resource++usersinout_icon.png"

@@ -4,6 +4,9 @@ Changelog
 1.2.3 (unreleased)
 ------------------
 
+- Add uninstall profile.
+  [thet]
+
 - Support of password export, from this blueprint:
   http://play.pixelblaster.ro/blog/archive/2011/03/09/export-import-users-in-and-out-of-plone
   [thet]
