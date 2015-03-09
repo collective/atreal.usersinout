@@ -151,7 +151,6 @@ class UsersInOut(BrowserView):
                 yield self._getUserData(user['userid'])
 
     def _getUserPassword(self, userId):
-        import pdb; pdb.set_trace()
         acl = getToolByName(self.context, 'acl_users')
         users = acl.source_users
         passwords = users._user_passwords
