@@ -7,7 +7,7 @@ from atreal.usersinout.config import CSV_HEADER, MEMBER_PROPERTIES
 import csv
 
 
-class UsersInOut (BrowserView):
+class UsersInOut(BrowserView):
     """Users import and export as CSV files.
     """
 
@@ -150,6 +150,13 @@ class UsersInOut (BrowserView):
             if not user['pluginid'] == 'mutable_properties':
                 yield self._getUserData(user['userid'])
 
+    def _getUserPassword(self, userId):
+        import pdb; pdb.set_trace()
+        acl = getToolByName(self.context, 'acl_users')
+        users = acl.source_users
+        passwords = users._user_passwords
+        return passwords.get(userId, '')
+
     def _getUserData(self, userId):
         member = self.pms.getMemberById(userId)
         groups = member.getGroups()
@@ -157,7 +164,8 @@ class UsersInOut (BrowserView):
         for gid in groups:
             group_roles.extend(self.group_roles.get(gid, []))
         roles = [role for role in member.getRoles() if role not in group_roles]
-        props = [userId, '', ','.join(roles)]  # userid, password, roles
+        # userid, password, roles
+        props = [userId, self._getUserPassword(userId), ','.join(roles)]
         if member is not None:
             for p in MEMBER_PROPERTIES:
                 props.append(member.getProperty(p))
