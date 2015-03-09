@@ -3,32 +3,32 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="atreal.usersinout">
 
-    <include package="Products.CMFCore" file="permissions.zcml"
-        xmlns:zcml="http://namespaces.zope.org/zcml"
-        zcml:condition="have plone-41" />
+  <include package="Products.CMFCore" file="permissions.zcml"
+      xmlns:zcml="http://namespaces.zope.org/zcml"
+      zcml:condition="have plone-41" />
 
    <browser:page
-        name="usersinout-controlpanel"
-        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-        class=".usersinout.UsersInOut"
-        template="usersinout.pt"
-        permission="cmf.ManagePortal"
-        layer="atreal.usersinout.interfaces.IUsersInOutLayer"
-        />
+      name="usersinout-controlpanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".usersinout.UsersInOut"
+      template="usersinout.pt"
+      permission="cmf.ManagePortal"
+      layer="atreal.usersinout.interfaces.IUsersInOutLayer"
+      />
 
    <browser:page
-        name="usersinout-getCSVTemplate"
-        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-        class=".usersinout.UsersInOut"
-        attribute="getCSVTemplate"
-        permission="cmf.ManagePortal"
-        layer="atreal.usersinout.interfaces.IUsersInOutLayer"
-        />
+      name="usersinout-getCSVTemplate"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".usersinout.UsersInOut"
+      attribute="getCSVTemplate"
+      permission="cmf.ManagePortal"
+      layer="atreal.usersinout.interfaces.IUsersInOutLayer"
+      />
 
-    <browser:resource
-        name="usersinout_icon.png"
-        image="usersinout_icon.png"
-        layer="atreal.usersinout.interfaces.IUsersInOutLayer"
-        />
+  <browser:resource
+      name="usersinout_icon.png"
+      image="usersinout_icon.png"
+      layer="atreal.usersinout.interfaces.IUsersInOutLayer"
+      />
 
 </configure>
