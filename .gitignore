@@ -1,0 +1,14 @@
+*.pyc
+*.mo
+*.swp
+*.egg-info
+*eggs/
+.*.cfg
+bin/
+local/
+parts/
+dist/
+include/
+lib/
+.project
+.pydevproject
