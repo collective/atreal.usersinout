@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.2.3 (unreleased)
+1.2.3 (2015-10-27)
 ------------------
 
 - Add uninstall profile.
