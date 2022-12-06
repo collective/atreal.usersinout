@@ -1,10 +1,13 @@
+import csv
+import codecs, io
+
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
-from StringIO import StringIO
+
 from atreal.usersinout import UsersInOutMessageFactory as _
 from atreal.usersinout.config import CSV_HEADER, MEMBER_PROPERTIES
-import csv
+
 
 
 class UsersInOut(BrowserView):
@@ -48,8 +51,10 @@ class UsersInOut(BrowserView):
         if file_upload is None or not file_upload.filename:
             return
 
-        reader = csv.reader(file_upload)
-        header = reader.next()
+        StreamReader = codecs.getreader('utf-8')
+        wrapper_file = StreamReader(file_upload.file)
+        reader = csv.reader(wrapper_file)
+        header = next(reader)
 
         if header != CSV_HEADER:
             msg = _(
@@ -81,7 +86,7 @@ class UsersInOut(BrowserView):
 
             except:
                 invalidLines.append(line)
-                print "Invalid line: %s" % line
+                print("Invalid line: %s" % line)
                 continue
             validLines.append(line)
 
@@ -102,7 +107,7 @@ class UsersInOut(BrowserView):
                 usersNumber += 1
             except:
                 invalidLines.append(line)
-                print "Invalid line: %s" % line
+                print("Invalid line: %s" % line)
 
         if invalidLines:
             datafile = self._createCSV(invalidLines)
@@ -173,10 +178,10 @@ class UsersInOut(BrowserView):
 
     def _createCSV(self, lines):
         """Write header and lines within the CSV file."""
-        datafile = StringIO()
-        writor = csv.writer(datafile)
-        writor.writerow(CSV_HEADER)
-        map(writor.writerow, lines)
+        datafile = io.StringIO()
+        writer = csv.writer(datafile)
+        writer.writerow(CSV_HEADER)
+        [writer.writerow(line) for line in lines]
         return datafile
 
     def _createRequest(self, data, filename):
